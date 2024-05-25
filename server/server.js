@@ -3,11 +3,14 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 // Cargar variables de entorno desde el archivo .env
 dotenv.config();
 
 const app = express();
+
+app.use(cors()); // Habilitar CORS
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,7 +27,7 @@ let transporter = nodemailer.createTransport({
 });
 
 app.post('/api/form', (req, res) => {
-  console.log('Datos del formulario:', req.body); // Agregar este registro para depuración
+  console.log('Datos del formulario:', req.body);
   let mailOptions = {
     from: req.body.email,
     to: process.env.EMAIL,
@@ -35,10 +38,10 @@ app.post('/api/form', (req, res) => {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error('Error al enviar el correo:', error);
-      return res.status(500).send('error'); // Usar return para asegurarse de que la ejecución se detiene aquí
+      return res.status(500).send('error');
     } else {
       console.log('Email enviado: ' + info.response);
-      return res.send('success'); // Usar return para asegurarse de que la ejecución se detiene aquí
+      return res.send('success');
     }
   });
 });
@@ -48,5 +51,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
-const PORT =  5000;
+const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

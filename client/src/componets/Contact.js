@@ -54,7 +54,7 @@ export const Contact = () => {
 
     axios({
       method: "POST", 
-      url: "http://localhost:5000/api/form", 
+      url: `${process.env.REACT_APP_API_URL}/api/form`, 
       data: {
         name,
         lastname,
