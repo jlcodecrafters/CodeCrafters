@@ -1,0 +1,19 @@
+.footer{
+    text-align: center;
+    min-height: 40px;
+    line-height: 5px;
+    font-size: 14px;
+    margin-top: 80px;
+    padding-bottom: 80px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    border-top: 3px solid black;
+    background: #f5f5f5;
+    color: #444;
+}
+/* estilos de tablet */
+@media only screen and (max-width: 768px){
+  .footer{
+    margin-top: 200px;
+  }
+}

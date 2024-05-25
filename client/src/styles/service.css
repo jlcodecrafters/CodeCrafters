@@ -1,0 +1,89 @@
+.page-service h1{
+    margin-top: 160px;
+    font-size: 60px;
+}
+.service img{
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+    max-height: 400px;
+}
+.service .carrusel{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.service .carrusel .white{
+    color: white;
+}
+.service .carrusel .button{
+  border: none;
+  font-size: 18px;
+  padding: 5px;
+  margin-top: 20px;
+  background-color: #FFD700;
+  border-radius: 5px;
+  transition: all 300ms;
+}
+.service .carrusel .button:hover{
+    background-color:#FF8C00;
+}
+.service .carrusel .button:active{
+    background-color: #50C878;
+}
+.h3-carrusel{
+    margin-bottom: 10%;
+    font-size: 35px;
+}
+.fondo-gris{
+    background-color: rgba(34, 21, 150, 0.5);
+}
+.page-service  .service .TextAcenter {
+    transition: all 300ms;
+}
+
+/* estilos escritorio normal a superior */
+@media only screen and (min-width: 1024px) {
+    .page-service .h {
+      font-size: 60px;
+      color: #000000;
+    }
+    .page-service .service:hover h1 {
+        color: #FF8C00;
+    }
+}
+/*  media de tablet a mobil */
+@media only screen and (max-width: 768px){
+    .service img{
+        max-height: 600px;
+        height: 500px;
+    }
+
+    .page-service .h{
+        font-size: 60px;
+    }
+    .page-service {
+        margin-top: 220px;
+    }
+    .service .h1-hover-mobile2{
+        font-size: 45px;
+        color: #FF8C00;
+    }
+    .service .carrusel{
+        width: 100%;
+        min-height: 600px;
+    }
+}
+
+
+/* Estilos para telefonos */
+@media only screen and (max-width: 600px){
+    .page-service .h{
+        font-size: 45px;
+    }
+    
+    .h3-carrusel{
+        margin-bottom:8%;
+        font-size: 27px;
+    }
+}

@@ -1,0 +1,127 @@
+.about{
+    width: 70%;
+    margin: 0 auto;
+}
+.about h1{
+    font-size: 60px;
+}
+.page-a{
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+.p-i-wrapper{
+    display: flex;
+    min-width: 100%;
+    max-height: 300px;
+    margin-top: 8%;
+    transition: all 0.5s ease-out;
+    opacity: 0;
+}
+
+
+.mi-caja.visible {
+    opacity: 1;
+    width: 100%;
+  }
+.page-a p {
+    max-width: 74%;
+    font-size: 25px;
+    color: #444;
+    font-weight: lighter;
+}
+.page-a .f-img img,
+.page-a .f-img{
+    max-height: 230px;
+    border-radius: 5px;
+    margin-left: 1%;
+    width: 285px;
+}
+.page-a .f-img{
+    margin-top: 5%;
+}
+
+.page-a .sec-img img{
+    max-height: 217px;
+}
+.page-a .third-img img{
+    max-height: 194px;
+}
+.page-a .fifth-img img{
+    max-height: 300px;
+    margin-top: -12%;
+}
+
+.page-a .sec-img{
+    max-width: 324px;
+}
+
+/* rotacion del logo por react */
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+    z-index: -1;
+}
+  
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+
+
+/* deberia ir el .h1-hover-mobile dentro de la mediaQuery de telefonos pero para que sirva 
+tanto en celular como en tablet la debo definir como una clase global del css a usar */
+.h1-hover-mobile{
+        color: #FF8C00;
+    }
+/* Estilos para telefonos */
+@media only screen and (max-width: 600px){
+    .about h1 {
+        font-size: 45px;
+    }
+    .page-a .f-img img{
+        margin-left: 0;
+    }
+    .p-i-wrapper{
+        margin-top: 18%;
+    }
+}
+/* estilos de tablet */
+@media only screen and (max-width: 768px){
+    .p-i-wrapper{
+        margin-top: 12%;
+        margin-bottom: 23%;
+        display: inline-block;
+    }
+    .contact{
+        height: auto;
+    }
+    .page-a  p{
+        max-width: 100%;
+        margin-top: 23%;
+    }
+    .App-logo{
+        z-index: -1;
+    }
+    
+}
+/* Estilos para escritorio del li */
+@media only screen and (min-width: 1024px){
+    .page-a .about .TextAcenter{
+        transition: all 300ms;
+    }
+    .page-a .about:hover h1 {
+       color: #FF8C00;
+    }
+}

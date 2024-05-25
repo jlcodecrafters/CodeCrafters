@@ -1,0 +1,73 @@
+.skills{
+    width: 70%;
+    margin: 0 auto;
+}
+.page-s{
+    margin-top: 150px;
+    margin-bottom: 300px;
+}
+.page-s .h{
+    font-size: 60px;
+}
+.page-s p{  
+    font-size: 25px;
+    margin-top: 40px;
+    line-height: 30px;
+    color: #444;
+    font-weight: lighter;
+}
+.page-s .skills-button{
+    max-width: 40%;
+    margin: 0 auto;
+}
+
+.page-s .skills .TextAcenter {
+    transition: all 300ms;
+}
+
+
+
+
+
+/* estilos escritorio normal a superior */
+@media only screen and (min-width: 1024px){
+    
+    .page-s .h{
+        font-size: 60px;
+        color: #000000;
+    }
+    .page-s .skills:hover h1 {
+        color: #FF8C00;
+    }
+    
+}
+/* estilos escritorio mas grande de 1440px */
+@media screen and (max-width: 1440px) {
+    .page-s .skills-button{
+        margin-left: 36%;
+    }
+}
+
+/*  media de tablet a mobil */
+@media only screen and (max-width: 768px){
+    .page-s .h{
+        font-size: 60px;
+    }
+    .page-s {
+        margin-top: 220px;
+    }
+    .skills .h1-hover-mobile2{
+        font-size: 45px;
+        color: #FF8C00;
+    }
+}
+/* estilos telefono */
+
+@media only screen and (max-width: 600px){
+    .page-s .skills-button{
+        margin-left: 34%;
+    }
+    .page-s .h{
+        font-size: 45px;
+    }
+}
