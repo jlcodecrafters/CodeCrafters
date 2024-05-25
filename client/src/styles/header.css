@@ -1,0 +1,167 @@
+.header{
+    min-width: 100%;
+    max-width:200px ;
+    margin-bottom: -100px;
+    height: 150px;
+}
+.header .top-header{
+    z-index: 5;
+    position: absolute;
+    background-color: #000000;
+    min-height: 30px;
+    min-width: 100%;
+}
+
+.header .top-header ul{
+    padding: 5px;
+}
+.header .low-header{
+    position: fixed;
+    min-width: 100%;
+    background-color: white;
+    padding-top: 35px;
+    margin-top: 15px;
+    z-index: 1;
+}
+
+.header .low-header .logo,
+.header .low-header{
+    display: flex;
+    align-items: center;
+}
+.header .low-header .logo a{
+    display: flex;
+    align-items: center;
+    color: #000000;
+    text-decoration: none;
+}
+.header .low-header .logo a img{
+    width: 80px;
+}
+
+.header .low-header .logo a,
+.header .top-header ul{
+    margin-left: 40px;
+}
+header .low-header nav:last-child{
+    margin-right: 40px;
+}
+
+.header .low-header nav ul,
+.header .top-header ul{
+    display: flex;
+    min-width: 40%;
+    list-style: none;
+}
+.header .low-header nav ul a{
+    display: block;
+    font-style: none;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 300ms;
+}
+.header .low-header nav ul li.hover-efecto,
+.header .top-header a:hover,
+.header .low-header nav ul a:hover{
+    color: #50C878;
+    text-decoration: line-through;
+}
+.header .low-header nav ul a:hover{
+    font-size: 18.5px;
+}
+.header .low-header nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: 100%;
+}
+
+
+.header .low-header .logo,
+.header .low-header nav,
+.header .low-header nav li,
+.header .top-header li{
+    flex-grow: 1;
+}
+.header .top-header li a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    transition: all 300ms;
+}
+
+.header .low-header .logo svg{
+    display: none;
+}
+/* Estilos para escritorio del low-header */
+@media only screen and (min-width: 600px){
+    .header .low-header{
+        margin-top: 15px;
+    }
+}
+
+
+/* poner lo de abajo en uan media de tablet a mobil */
+
+@media only screen and (max-width: 768px){
+    .low-header{
+        display: block;
+        position: relative;
+    }
+    .header .low-header{
+        margin-top: 15px;
+    }
+}
+/* estilos para mobile */
+@media only screen and (max-width: 600px){
+    
+    .header{
+        position: relative;
+    }
+    .header .top-header{
+        z-index: 0;
+        position: relative;
+    }
+    .header .low-header{
+        position: fixed;
+        display: inline-block;
+        width: auto;
+        min-width: 100% auto;
+    }
+    .header .low-header .logo{
+        width: 100%;
+    }
+    .header .low-header nav {
+        justify-content: flex-start;
+        width: 100%;
+        overflow: hidden;
+    }
+    .header .low-header nav ul{
+        width: 100%;
+        transition: all 600ms,
+    }
+    .header .low-header nav ul li:hover{
+        background-color: #b9b9b9;
+    }
+    .header .low-header nav ul li.hover-efecto{
+        background-color: #b9b9b9;
+    }
+    .header .low-header nav ul li.hover-efecto a{
+        color: #50C878;
+    }
+    .header .low-header .logo svg{
+        display: block;
+        margin-left: 10%;
+        cursor: pointer;
+        height: 30px;
+        flex-grow: 1;
+    }
+    .header .low-header .logo nav{
+        width: 100%;
+    }
+    .header .low-header nav ul, .header .top-header ul{
+        display: inline-block;
+    }
+
+}
