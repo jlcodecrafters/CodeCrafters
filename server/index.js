@@ -8,6 +8,11 @@ const cors = require('cors');
 // Cargar variables de entorno desde el archivo .env
 dotenv.config();
 
+if (!process.env.PORT) {
+  console.error("PORT environment variable is not defined.");
+  process.exit(1); // Salir si la variable de entorno no está definida
+}
+
 const app = express();
 
 app.use(cors()); // Habilitar CORS
@@ -51,5 +56,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
