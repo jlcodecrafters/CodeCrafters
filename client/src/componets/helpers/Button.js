@@ -13,11 +13,7 @@ function Button() {
     <ButtonBootstrap variant={["primary", "secondary", "success"][buttonIndex]} size="md" >
       Button Bootstrap Style {["Primary", "Secondary", "Success"][buttonIndex]}
     </ButtonBootstrap> : 
-<<<<<<< HEAD
     <ButtonChakra colorScheme={["teal", "pink", "yellow"][buttonIndex - 3]} size='md'>
-=======
-    <ButtonChakra colorScheme={["teal", "pink", "yellow"][buttonIndex - 3]} size='lg'>
->>>>>>> 4b56d8a6b445406ff1a3315a7f6f0ed4afee1ccb
       Button Chakra Style {["Teal", "Pink", "Yellow"][buttonIndex - 3]}
     </ButtonChakra>;
 
