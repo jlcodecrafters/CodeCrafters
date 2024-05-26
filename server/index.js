@@ -57,8 +57,4 @@ app.get('*', (req, res) => {
 });
 
 const PORT = process.env.PORT;
-<<<<<<< HEAD
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-=======
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
->>>>>>> 4b56d8a6b445406ff1a3315a7f6f0ed4afee1ccb
