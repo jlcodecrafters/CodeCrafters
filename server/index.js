@@ -16,7 +16,7 @@ if (!process.env.PORT) {
 const app = express();
 
 app.use(cors({
-  origin: 'https://www.jlcodecrafters.com', // Permitir solicitudes desde este origen
+  origin: 'https://www.code-crafters-server.vercel.app', // Permitir solicitudes desde este origen
   methods: ['GET', 'POST'], // Permitir métodos específicos
   credentials: true // Habilitar credenciales si es necesario
 }));
