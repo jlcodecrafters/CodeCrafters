@@ -39,11 +39,11 @@ export const Skills = () => {
     <div className='page page-s'>
       <div className='skills'>
         {/* agregar un apartado para las habilidades de google maps y doordash appi */}
-        <h1 className='TextAcenter h'>Descubre la interactividad a tu alcance con solo un clic</h1>
+        <h1 className='TextAcenter h'>Discover interactivity at your fingertips with just one click.</h1>
         <p className='TextAcenter'>
-          Te invitamos a experimentar nuestro botón dinámico a continuación,
-          que no solo transforma su estilo sino también su contenido e intercambia entre Bootstrap y Chakra UI,
-          adaptándose a tus preferencias en tiempo real. ¡No esperes más y ve el cambio en acción!
+        We invite you to experience our dynamic button below, which not only transforms its style but also
+         its content, switching between Bootstrap and Chakra UI, adapting to your preferences in real time.
+          Don’t wait any longer and see the change in action!
         </p>
         {/* boton dinamico que cambia entre frameworks */}
         <div className='skills-button'><Button/></div>

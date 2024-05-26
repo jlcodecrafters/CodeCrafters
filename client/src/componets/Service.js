@@ -37,7 +37,7 @@ export const Service = () => {
 
       <div className='service'>
 
-        <h1 className='TextAcenter h'>Impulsa Tu Negocio con Nuestros Servicios Digitales</h1>
+        <h1 className='TextAcenter h'>Boost Your Business with Our Digital Services.</h1>
         <div className='carrusel'>
           <IndividualIntervals/>
         </div>

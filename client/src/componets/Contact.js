@@ -7,6 +7,12 @@ import ReCAPTCHA from 'react-google-recaptcha';
 export const Contact = () => {
   const [isVerified, setIsVerified] = useState(false);
 
+  if (!process.env.REACT_APP_API_URL) {
+    throw new Error("REACT_APP_API_URL environment variable is not defined.");
+  }
+
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     function handleTouch() {
       if (window.innerWidth <= 1024) {
@@ -54,7 +60,7 @@ export const Contact = () => {
 
     axios({
       method: "POST", 
-      url: "http://localhost:5000/api/form", 
+      url: `${apiUrl}/api/form`, 
       data: {
         name,
         lastname,
@@ -67,11 +73,11 @@ export const Contact = () => {
         alert("Mensaje Enviado."); 
         resetForm(e.target);
       } else {
-        alert("Mensaje fallido.");
+        alert("Mensaje fallido1.");
       }
     }).catch((error) => {
       console.error('There was an error sending the email:', error);
-      alert("Mensaje fallido.");
+      alert("Mensaje fallido2.");
     });
   }
 
