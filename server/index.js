@@ -15,7 +15,11 @@ if (!process.env.PORT) {
 
 const app = express();
 
-app.use(cors()); // Habilitar CORS
+app.use(cors({
+  origin: 'https://www.jlcodecrafters.com', // Permitir solicitudes desde este origen
+  methods: ['GET', 'POST'], // Permitir métodos específicos
+  credentials: true // Habilitar credenciales si es necesario
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
