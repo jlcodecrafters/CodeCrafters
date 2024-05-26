@@ -54,7 +54,7 @@ export const Contact = () => {
 
     axios({
       method: "POST", 
-      url: `${process.env.REACT_APP_API_URL}/api/form`, 
+      url: `http://localhost:5000/api/form`, 
       data: {
         name,
         lastname,
@@ -67,11 +67,11 @@ export const Contact = () => {
         alert("Mensaje Enviado."); 
         resetForm(e.target);
       } else {
-        alert("Mensaje fallido.");
+        alert("Mensaje fallido1.");
       }
     }).catch((error) => {
       console.error('There was an error sending the email:', error);
-      alert("Mensaje fallido.");
+      alert("Mensaje fallido2.");
     });
   }
 
