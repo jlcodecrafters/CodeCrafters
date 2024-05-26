@@ -1,9 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const dotenv = require('dotenv');
-const cors = require('cors');
 
 // Cargar variables de entorno desde el archivo .env
 dotenv.config();
@@ -15,8 +15,20 @@ if (!process.env.PORT) {
 
 const app = express();
 
+const allowedOrigins = [
+  'https://www.jlcodecrafters.com',
+  'https://www.code-crafters-client.vercel.app',
+];
+
 app.use(cors({
-  origin: 'https://www.code-crafters-server.vercel.app', // Permitir solicitudes desde este origen
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   methods: ['GET', 'POST'], // Permitir métodos específicos
   credentials: true // Habilitar credenciales si es necesario
 }));
