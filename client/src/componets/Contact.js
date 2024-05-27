@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/contact.css';
 import $ from 'jquery';
-import axios from 'axios';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 export const Contact = () => {
   const [isVerified, setIsVerified] = useState(false);
-
-  if (!process.env.REACT_APP_API_URL) {
-    throw new Error("REACT_APP_API_URL environment variable is not defined.");
-  }
-
-  const apiUrl = process.env.REACT_APP_API_URL;
-  console.log(apiUrl);
 
   useEffect(() => {
     function handleTouch() {
@@ -59,27 +51,24 @@ export const Contact = () => {
       return;
     }
 
-    axios({
-      method: "POST", 
-      url: `${apiUrl}/api/form`, 
-      data: {
-        name,
-        lastname,
-        phone,
-        email,
-        message
+    // Configura los parámetros de SMTPJS
+    window.Email.send({
+      SecureToken: "YOUR_SECURE_TOKEN",
+      To: 'your-email@example.com',
+      From: email,
+      Subject: "Mensaje de mi sitio web",
+      Body: `Nombre: ${name}\nApellido: ${lastname}\nTeléfono: ${phone}\nEmail: ${email}\nMensaje: ${message}`
+    }).then(
+      (message) => {
+        if (message === 'OK') {
+          alert("Mensaje Enviado.");
+          resetForm(e.target);
+        } else {
+          console.error('Error al enviar el correo:', message);
+          alert("Mensaje fallido.");
+        }
       }
-    }).then((response) => {
-      if (response.data === 'success') {
-        alert("Mensaje Enviado."); 
-        resetForm(e.target);
-      } else {
-        alert("Mensaje fallido1.");
-      }
-    }).catch((error) => {
-      console.error('There was an error sending the email:', error);
-      alert("Mensaje fallido2.");
-    });
+    );
   }
 
   const resetForm = (form) => {
@@ -87,7 +76,7 @@ export const Contact = () => {
     form.lastname.value = '';
     form.phone.value = '';
     form.email.value = '';
-    if(form.message) {
+    if (form.message) {
       form.message.value = '';
     }
   }

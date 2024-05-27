@@ -110,6 +110,7 @@ export const About = () => {
                 us through our contact page. We’re here to help you bring your ideas to reality.
               </p><br/>
               <div ref={FifthImageRef} className='f-img fifth-img' />
+              <br/>
           </MiCaja>
           
       </div>

@@ -49,12 +49,15 @@
 }
 
 /*  media de tablet a mobil */
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 850px){
     .page-s .h{
         font-size: 60px;
     }
     .page-s {
         margin-top: 220px;
+    }
+    .page-s .skills-button {
+        margin-left: 27.5%;
     }
     .skills .h1-hover-mobile2{
         font-size: 45px;

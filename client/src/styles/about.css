@@ -88,7 +88,7 @@ tanto en celular como en tablet la debo definir como una clase global del css a 
 /* Estilos para telefonos */
 @media only screen and (max-width: 600px){
     .about h1 {
-        font-size: 45px;
+        font-size: 40px;
     }
     .page-a .f-img img{
         margin-left: 0;
@@ -98,7 +98,7 @@ tanto en celular como en tablet la debo definir como una clase global del css a 
     }
 }
 /* estilos de tablet */
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 850px){
     .p-i-wrapper{
         margin-top: 12%;
         margin-bottom: 23%;
@@ -113,6 +113,9 @@ tanto en celular como en tablet la debo definir como una clase global del css a 
     }
     .App-logo{
         z-index: -1;
+    }
+    .page-a .f-img img {
+        margin-left: 33%;
     }
     
 }

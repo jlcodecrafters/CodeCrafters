@@ -10,6 +10,7 @@
 }
 .service .carrusel{
     width: 60%;
+    min-height: 350px;
     margin: 0 auto;
     margin-top: 5%;
 }
@@ -30,6 +31,9 @@
 }
 .service .carrusel .button:active{
     background-color: #50C878;
+}
+.service .carrusel a .button{
+    color: #000000;
 }
 .h3-carrusel{
     margin-bottom: 10%;
@@ -53,7 +57,7 @@
     }
 }
 /*  media de tablet a mobil */
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 850px){
     .service img{
         max-height: 600px;
         height: 500px;

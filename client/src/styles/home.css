@@ -5,15 +5,16 @@
     margin-top: 155px;
     margin-left: 14%;
     margin-bottom: 250px;
-    box-shadow: 1px 1px 20px black;
     min-height: auto;
     padding: 40px;
     transition: all 300ms;
     border-radius: 35px;
 }
-.page .anunciox1:hover{
-    box-shadow: 1px 1px 20px #FFD700 ;
+.page .div-hover{
+    box-shadow: 1px 1px 20px black;
+
 }
+
 .page .anunciox1 h1{
     font-size: 60px;
 }
@@ -40,7 +41,7 @@
 .page .anunciox1 button:active{
     background-color: #50C878;
 }
-.page .anunciox1 button a{
+.page .anunciox1 a button {
     color: #000000;
     text-decoration: none;
 }
@@ -80,20 +81,24 @@
     margin-top: 25px;
 }
 
-/* Estilos para escritorio del li */
-@media only screen and (min-width: 600px){
-    .page .anunciox4 ul li:hover h3,
-    .page .anunciox4 ul li:hover {
-       font-size: 32px;
-       color: #FF8C00;
-    }
+/* efecto hover telefono */
+    
+.hover-efecto-x4-li,
+.hover-efecto-x4-li h3 {
+font-size: 32px;
+color: #FF8C00;
+}
+
+.hover-efecto-x1-div{
+    box-shadow: 1px 1px 20px #FFD700 ;
 }
 
 /* poner lo de abajo en uan media de tablet a mobil */
 /* Estilos para tabletas */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 850px) {
     .page .anunciox4 ul{
         height: auto;
+        display: block;
     }
   }
 /* Estilos para telefonos */
@@ -104,10 +109,10 @@
         box-shadow: none;
     }
     .page .anunciox4 h2{
-        font-size: 45px;
+        font-size: 40px;
     }
     .page .anunciox1 h1{
-        font-size: 45px;
+        font-size: 40px;
         text-decoration: underline;
         text-decoration-color: #FFD700;
         text-decoration-thickness: 2px;
@@ -118,6 +123,7 @@
     }
     .page .anunciox1 p{
         line-height: 50px;
+
     }
     .page .anunciox1 p button{
         line-height: 40px;
@@ -135,11 +141,16 @@
         overflow: hidden;
     }
     
-    /* efecto hover telefono */
     
-        .hover-efecto-x4-li,
-        .hover-efecto-x4-li h3 {
-        font-size: 32px;
-        color: #FF8C00;
-        }
+}
+/* Estilos para escritorio del li */
+@media only screen and (min-width: 1024px){
+    .page .anunciox4 ul .li-a:hover h3,
+    .page .anunciox4 ul .li-a:hover {
+       font-size: 32px;
+       color: #FF8C00;
+    }
+    .page .anunciox1:hover{
+        box-shadow: 1px 1px 20px #FFD700 ;
+    }
 }

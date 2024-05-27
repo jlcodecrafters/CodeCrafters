@@ -78,22 +78,9 @@
   width: 100%;
 }
 
-/* Estilos para telefonos */
-@media only screen and (max-width: 600px){
-   
-    .page .page-c,
-    .page{
-        margin-top: 190px;
-        margin-bottom: 200px;
-    }
-    .page-c .form h2,
-    .page-c h1{
-        font-size: 45px;
-    }
-      
-}
+
 /* estilos de tablet */
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 850px){
     .contact{
         height: auto;
         margin-bottom: 70px;
@@ -118,4 +105,18 @@
         color: #000000;
     }
     
+}
+/* Estilos para telefonos */
+@media only screen and (max-width: 600px){
+   
+    .page .page-c,
+    .page{
+        margin-top: 250px;
+        margin-bottom: 200px;
+    }
+    .page-c .form h2,
+    .page-c h1{
+        font-size: 40px;
+    }
+      
 }

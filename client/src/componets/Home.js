@@ -10,13 +10,26 @@ export const Home = () => {
   // hover mobile
   useEffect(() => {
     function handleTouch() {
-      if (window.innerWidth <= 600) {
+      if (window.innerWidth <= 1024) {
+        // para la caja de home
+        $(".page .anunciox1 ").on("touchstart", function(e) {
+          $(this).addClass("hover-efecto-x1-div");
+          $(this).removeClass("div-hover");
+        });
+
+        $(".page .anunciox1 ").on("touchend", function() {
+          $(this).removeClass("hover-efecto-x1-div");
+          $(this).addClass("div-hover");
+        });
+        // para los li  de home
         $(".page .anunciox4 ul li").on("touchstart", function(e) {
           $(this).addClass("hover-efecto-x4-li");
+          $(this).removeClass("li-a");
         });
 
         $(".page .anunciox4 ul li").on("touchend", function() {
           $(this).removeClass("hover-efecto-x4-li");
+          $(this).addClass("li-a");
         });
       } else {
         $(".page .anunciox4 ul li").off("touchstart touchmove touchend");
@@ -38,7 +51,7 @@ export const Home = () => {
   return (
     <div className='page' >
 
-      <div className='anunciox1'>
+      <div className='anunciox1 div-hover '>
         <h1>Unprecedented User Experience</h1>
         
         <p>Explore innovation in user experience with our React.js solutions.
@@ -58,7 +71,7 @@ export const Home = () => {
           </p>
           <div className='list' >
             <ul>
-              <li>
+              <li className='li-a'>
                 <h3> <FontAwesomeIcon icon={faMagnifyingGlass}/> Evaluation</h3>
                 <p>
                   We assess your needs and conduct a detailed analysis to fully understand your vision.
@@ -66,7 +79,7 @@ export const Home = () => {
                 </p>
               </li>
 
-              <li>
+              <li className='li-a'>
                 <h3> <FontAwesomeIcon icon={faImages} /> Prototyping </h3>
                 <p>
                 We create design prototypes based on your requirements.
@@ -75,7 +88,7 @@ export const Home = () => {
                 </p>
               </li>
 
-              <li>
+              <li className='li-a'>
                 <h3><FontAwesomeIcon icon={faCode} /> Development</h3>
                 <p>
                 We develop the prototype, conduct thorough testing, and prepare everything for deployment.
@@ -84,7 +97,7 @@ export const Home = () => {
                 </p>
               </li>
 
-              <li>
+              <li className='li-a'>
                 <h3><FontAwesomeIcon icon={faRocket} /> Publication </h3>
                 <p>
                 Once all revisions have been made and you are satisfied with the product,
