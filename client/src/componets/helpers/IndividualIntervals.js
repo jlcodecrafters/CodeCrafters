@@ -54,6 +54,7 @@ const [imagesLoaded, setImagesLoaded] = useState(false);
             <Link to='/contact' ><button className='button'>Contact</button></Link>
           </Carousel.Caption>
       </Carousel.Item>
+      
 {/* dentro de Carousel.Item va interval={500} para modificar su intervalo de movimiento */}
       <Carousel.Item interval={2500} >
         <img src={SecondImg} alt="Second slide" />

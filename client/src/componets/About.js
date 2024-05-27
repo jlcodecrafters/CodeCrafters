@@ -75,6 +75,7 @@ export const About = () => {
             </p><br/>
               <div ref={FirstImageRef} className='f-img App-logo' />
           </MiCaja>
+          <br/>
           <MiCaja>
             <p className='TextAcenter'><br/>
               We utilize cutting-edge technologies such as React.js, Redux, React Router, Webpack/Babel,
@@ -84,6 +85,7 @@ export const About = () => {
             </p><br/>
             <div ref={SecImageRef} className='f-img sec-img' />
           </MiCaja>
+          <br/>
           <MiCaja>
             <p className='TextAcenter'><br/>
               Our development process is grounded in a thorough analysis of requirements, design and prototyping,
@@ -94,6 +96,7 @@ export const About = () => {
             </p><br/><br/>
             <div ref={ThirdImageRef} className='f-img third-img' />
           </MiCaja>
+          <br/>
           <MiCaja>
             <p className='TextAcenter'><br/>
             Our corporate culture values innovation, collaboration, and continuous improvement.
@@ -102,6 +105,7 @@ export const About = () => {
             </p><br/>
             <div ref={FourthImageRef} className='f-img ' />
           </MiCaja>
+          <br/>
           <MiCaja>
           <br/>
             <p className='TextAcenter'>
@@ -112,6 +116,7 @@ export const About = () => {
               <div ref={FifthImageRef} className='f-img fifth-img' />
               <br/>
           </MiCaja>
+          <br/>
           
       </div>
         
