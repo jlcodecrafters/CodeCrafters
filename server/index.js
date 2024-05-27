@@ -20,37 +20,23 @@ const allowedOrigins = [
   'https://www.code-crafters-client.vercel.app',
 ];
 
-app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  methods: ['GET', 'POST', 'OPTIONS'], // Incluir OPTIONS para preflight
-  allowedHeaders: ['Content-Type', 'Authorization'], // Asegurar que los encabezados permitidos estén especificados
-  credentials: true // Habilitar credenciales si es necesario
-}));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // Permitir a todas las direcciones acceder (en producción, ajusta esto según tus necesidades)
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); // Métodos permitidos
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'); // Encabezados permitidos
+  res.header('Access-Control-Allow-Credentials', true); // Permitir credenciales
+
+  if (req.method === 'OPTIONS') {
+    // Respondemos a las solicitudes OPTIONS con el código 200
+    res.sendStatus(200);
+  } else {
+    // Continuar con el siguiente middleware
+    next();
+  }
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// Middleware para manejar preflight requests (OPTIONS)
-app.options('*', cors({
-  origin: function(origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
 
 // Servir los archivos estáticos de React
 app.use(express.static(path.join(__dirname, '../client/build')));
