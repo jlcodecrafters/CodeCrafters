@@ -116,7 +116,7 @@ export const About = () => {
               <div ref={FifthImageRef} className='f-img fifth-img' />
               <br/>
           </MiCaja>
-          <br/>
+          <br/><br/>
           
       </div>
         
