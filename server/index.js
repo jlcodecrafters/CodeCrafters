@@ -29,12 +29,28 @@ app.use(cors({
     }
     return callback(null, true);
   },
-  methods: ['GET', 'POST'], // Permitir métodos específicos
+  methods: ['GET', 'POST', 'OPTIONS'], // Incluir OPTIONS para preflight
+  allowedHeaders: ['Content-Type', 'Authorization'], // Asegurar que los encabezados permitidos estén especificados
   credentials: true // Habilitar credenciales si es necesario
 }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Middleware para manejar preflight requests (OPTIONS)
+app.options('*', cors({
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
 // Servir los archivos estáticos de React
 app.use(express.static(path.join(__dirname, '../client/build')));
@@ -74,4 +90,3 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
