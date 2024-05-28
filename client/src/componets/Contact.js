@@ -51,11 +51,13 @@ export const Contact = () => {
       return;
     }
 
-    // Configura los parámetros de SMTPJS
+    // Configura los parámetros de SMTPJS usando variables de entorno
     window.Email.send({
-      SecureToken: "YOUR_SECURE_TOKEN",
-      To: 'your-email@example.com',
-      From: email,
+      Host: process.env.REACT_APP_SMTP_HOST,
+      Username: process.env.REACT_APP_SMTP_USER,
+      Password: process.env.REACT_APP_SMTP_PASSWORD,
+      To: process.env.REACT_APP_EMAIL_TO,
+      From: process.env.REACT_APP_SMTP_USER,
       Subject: "Mensaje de mi sitio web",
       Body: `Nombre: ${name}\nApellido: ${lastname}\nTeléfono: ${phone}\nEmail: ${email}\nMensaje: ${message}`
     }).then(
