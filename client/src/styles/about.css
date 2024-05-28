@@ -85,16 +85,13 @@ tanto en celular como en tablet la debo definir como una clase global del css a 
 .h1-hover-mobile{
         color: #FF8C00;
     }
-/* Estilos para telefonos */
-@media only screen and (max-width: 600px){
-    .about h1 {
-        font-size: 40px;
+/* Estilos para escritorio del li */
+@media only screen and (min-width: 1024px){
+    .page-a .about .TextAcenter{
+        transition: all 300ms;
     }
-    .page-a .f-img img{
-        margin-left: 0;
-    }
-    .p-i-wrapper{
-        margin-top: 18%;
+    .page-a .about:hover h1 {
+       color: #FF8C00;
     }
 }
 /* estilos de tablet */
@@ -115,16 +112,20 @@ tanto en celular como en tablet la debo definir como una clase global del css a 
         z-index: -1;
     }
     .page-a .f-img img {
-        margin-left: 33%;
+        margin-left: 45%;
     }
     
 }
-/* Estilos para escritorio del li */
-@media only screen and (min-width: 1024px){
-    .page-a .about .TextAcenter{
-        transition: all 300ms;
+/* Estilos para telefonos */
+@media only screen and (max-width: 600px){
+    .about h1 {
+        font-size: 40px;
     }
-    .page-a .about:hover h1 {
-       color: #FF8C00;
+    .page-a .f-img img{
+        margin-left: -10%;
+    }
+    .p-i-wrapper{
+        margin-top: 18%;
     }
 }
+
