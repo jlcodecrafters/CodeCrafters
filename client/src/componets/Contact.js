@@ -46,19 +46,42 @@ export const Contact = () => {
     const phone = DOMPurify.sanitize(e.target.phone.value.trim());
     const email = DOMPurify.sanitize(e.target.email.value.trim());
     const message = DOMPurify.sanitize(e.target.message?.value.trim() || '');
+    const projectDescription = DOMPurify.sanitize(e.target.project_description?.value.trim() || '');
+    const tec = DOMPurify.sanitize(e.target.tec?.value.trim() || '');
+    const limit = DOMPurify.sanitize(e.target.limit?.value.trim() || '');
+    const budget = DOMPurify.sanitize(e.target.Budget?.value.trim() || '');
+    const finalUser = DOMPurify.sanitize(e.target.final_user?.value.trim() || '');
+    const specialRec = DOMPurify.sanitize(e.target.special_rec?.value.trim() || '');
+    const integrations = DOMPurify.sanitize(e.target.integrations?.value.trim() || '');
+    const maintenanceSupport = DOMPurify.sanitize(e.target.maintenance_support?.value.trim() || '');
+    const ejemRef = DOMPurify.sanitize(e.target.ejem_ref?.value.trim() || '');
 
-    if (!name || !lastname || !phone || !email || !message) {
-      alert("Por favor rellene el formulario antes de enviarlo.");
+    if (!name || !lastname || !phone || !email || !message || !projectDescription || !tec || !limit || !budget || !finalUser || !specialRec || !integrations || !maintenanceSupport || !ejemRef) {
+      alert("Please fill out the entire form before submitting.");
       return;
     }
 
-    // Configura los parámetros de ElasticEmail usando variables de entorno
     window.Email.send({
       SecureToken: "28bff358-63bf-47fb-a033-0e3fae72ed9c",
       To: 'jlcodecrafters@gmail.com',
       From: "contact@jlcodecrafters.com",
       Subject: "Mensaje de mi sitio web",
-      Body: `Nombre: ${name}\nApellido: ${lastname}\nTeléfono: ${phone}\nEmail: ${email}\nMensaje: ${message}`
+      Body: `
+        Nombre: ${name}
+        Apellido: ${lastname}
+        Teléfono: ${phone}
+        Email: ${email}
+        Mensaje: ${message}
+        Descripción del proyecto: ${projectDescription}
+        Tecnología preferida: ${tec}
+        Fecha límite: ${limit}
+        Presupuesto estimado: ${budget}
+        Usuarios finales: ${finalUser}
+        Requisitos de accesibilidad: ${specialRec}
+        Integraciones requeridas: ${integrations}
+        Soporte de mantenimiento: ${maintenanceSupport}
+        Ejemplos de referencia: ${ejemRef}
+      `
     }).then(
       (message) => {
         if (message === 'OK') {
@@ -77,9 +100,16 @@ export const Contact = () => {
     form.lastname.value = '';
     form.phone.value = '';
     form.email.value = '';
-    if (form.message) {
-      form.message.value = '';
-    }
+    form.message.value = '';
+    form.project_description.value = '';
+    form.tec.value = '';
+    form.limit.value = '';
+    form.Budget.value = '';
+    form.final_user.value = '';
+    form.special_rec.value = '';
+    form.integrations.value = '';
+    form.maintenance_support.value = '';
+    form.ejem_ref.value = '';
   }
 
   const handleRecaptchaChange = (value) => {
@@ -101,6 +131,7 @@ export const Contact = () => {
       <div className='form'>
         <h2>Contact Form</h2>
         <form onSubmit={formSubmit}>
+          <label>Please fill out the entire form before submitting.</label>
           <input type='text' name='name' placeholder='Name' />
           <input type='text' name='lastname' placeholder='Last Name' />
           <input
@@ -110,12 +141,21 @@ export const Contact = () => {
           />
           <input type='email' name='email' placeholder='Email' />
           <textarea name='message' placeholder='Your message'></textarea>
+          <textarea name='project_description' placeholder='Could you provide a detailed description of the project?'></textarea>
           <div className='recaptcha-container'>
-            <ReCAPTCHA
+          </div>
+          <input type='text' name='tec' placeholder='Is there any specific technology or tool you would like to be used in the project?' />
+          <input type='text' name='limit' placeholder='What is the deadline for the project completion?' />
+          <input type='text' name='Budget' placeholder='What is your estimated budget for this project?' />
+          <input type='text' name='final_user' placeholder='Who are the end users of this project?' />
+          <input type='text' name='special_rec' placeholder='Are there specific accessibility or usability requirements that we need to be aware of?' />
+          <input type='text' name='integrations' placeholder='Do you require integrations with other services or APIs?' />
+          <input type='text' name='maintenance_support' placeholder='Do you require integrations with other services or APIs?' />
+          <textarea name='ejem_ref' placeholder='Could you provide examples of websites or applications that you like and why?'></textarea>
+          <ReCAPTCHA
               sitekey="6LeOlOYpAAAAAP4VQDHpwFaBzCZiYLq56kZkjzOQ"
               onChange={handleRecaptchaChange}
             />
-          </div>
           <input type='submit' value='Enviar' disabled={!isVerified} />
         </form>
       </div>
