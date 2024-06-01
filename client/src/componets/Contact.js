@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify';
 import '../styles/contact.css';
 import $ from 'jquery';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -40,24 +41,22 @@ export const Contact = () => {
       return;
     }
 
-    const name = e.target.name.value.trim();
-    const lastname = e.target.lastname.value.trim();
-    const phone = e.target.phone.value.trim();
-    const email = e.target.email.value.trim();
-    const message = e.target.message?.value.trim() || '';
+    const name = DOMPurify.sanitize(e.target.name.value.trim());
+    const lastname = DOMPurify.sanitize(e.target.lastname.value.trim());
+    const phone = DOMPurify.sanitize(e.target.phone.value.trim());
+    const email = DOMPurify.sanitize(e.target.email.value.trim());
+    const message = DOMPurify.sanitize(e.target.message?.value.trim() || '');
 
     if (!name || !lastname || !phone || !email || !message) {
       alert("Por favor rellene el formulario antes de enviarlo.");
       return;
     }
 
-    // Configura los parámetros de SMTPJS usando variables de entorno
+    // Configura los parámetros de ElasticEmail usando variables de entorno
     window.Email.send({
-      Host: process.env.REACT_APP_SMTP_HOST,
-      Username: process.env.REACT_APP_SMTP_USER,
-      Password: process.env.REACT_APP_SMTP_PASSWORD,
-      To: process.env.REACT_APP_EMAIL_TO,
-      From: process.env.REACT_APP_SMTP_USER,
+      SecureToken: "28bff358-63bf-47fb-a033-0e3fae72ed9c",
+      To: 'jlcodecrafters@gmail.com',
+      From: "contact@jlcodecrafters.com",
       Subject: "Mensaje de mi sitio web",
       Body: `Nombre: ${name}\nApellido: ${lastname}\nTeléfono: ${phone}\nEmail: ${email}\nMensaje: ${message}`
     }).then(
