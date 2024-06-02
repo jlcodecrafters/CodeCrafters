@@ -6,6 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 export const Contact = () => {
   const [isVerified, setIsVerified] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("normal");
 
   useEffect(() => {
     function handleTouch() {
@@ -41,60 +42,98 @@ export const Contact = () => {
       return;
     }
 
+    // Basic fields sanitization
     const name = DOMPurify.sanitize(e.target.name.value.trim());
     const lastname = DOMPurify.sanitize(e.target.lastname.value.trim());
     const phone = DOMPurify.sanitize(e.target.phone.value.trim());
     const email = DOMPurify.sanitize(e.target.email.value.trim());
-    const message = DOMPurify.sanitize(e.target.message?.value.trim() || '');
-    const projectDescription = DOMPurify.sanitize(e.target.project_description?.value.trim() || '');
-    const tec = DOMPurify.sanitize(e.target.tec?.value.trim() || '');
-    const limit = DOMPurify.sanitize(e.target.limit?.value.trim() || '');
-    const budget = DOMPurify.sanitize(e.target.Budget?.value.trim() || '');
-    const finalUser = DOMPurify.sanitize(e.target.final_user?.value.trim() || '');
-    const specialRec = DOMPurify.sanitize(e.target.special_rec?.value.trim() || '');
-    const integrations = DOMPurify.sanitize(e.target.integrations?.value.trim() || '');
-    const maintenanceSupport = DOMPurify.sanitize(e.target.maintenance_support?.value.trim() || '');
-    const ejemRef = DOMPurify.sanitize(e.target.ejem_ref?.value.trim() || '');
+    const message = DOMPurify.sanitize(e.target.message.value.trim());
 
-    if (!name || !lastname || !phone || !email || !message || !projectDescription || !tec || !limit || !budget || !finalUser || !specialRec || !integrations || !maintenanceSupport || !ejemRef) {
-      alert("Please fill out the entire form before submitting.");
-      return;
-    }
-
-    window.Email.send({
-      SecureToken: "28bff358-63bf-47fb-a033-0e3fae72ed9c",
-      To: 'jlcodecrafters@gmail.com',
-      From: "contact@jlcodecrafters.com",
-      Subject: "Mensaje de mi sitio web",
-      Body: `
-        Nombre: ${name}
-        Apellido: ${lastname}
-        Teléfono: ${phone}
-        Email: ${email}
-        Mensaje: ${message}
-        Descripción del proyecto: ${projectDescription}
-        Tecnología preferida: ${tec}
-        Fecha límite: ${limit}
-        Presupuesto estimado: ${budget}
-        Usuarios finales: ${finalUser}
-        Requisitos de accesibilidad: ${specialRec}
-        Integraciones requeridas: ${integrations}
-        Soporte de mantenimiento: ${maintenanceSupport}
-        Ejemplos de referencia: ${ejemRef}
-      `
-    }).then(
-      (message) => {
-        if (message === 'OK') {
-          alert("Mensaje Enviado.");
-          resetForm(e.target);
-        } else {
-          console.error('Error al enviar el correo:', message);
-          alert("Mensaje fallido.");
-        }
+    // Validation based on selected option
+    if (selectedOption === "normal") {
+      if (!name || !lastname || !phone || !email || !message) {
+        alert("Please fill out all required fields before submitting.");
+        return;
       }
-    );
+
+      // Send email with basic fields only
+      window.Email.send({
+        SecureToken: "28bff358-63bf-47fb-a033-0e3fae72ed9c",
+        To: 'jlcodecrafters@gmail.com',
+        From: "contact@jlcodecrafters.com",
+        Subject: "Mensaje de mi sitio web",
+        Body: `
+          Nombre: ${name}
+          Apellido: ${lastname}
+          Teléfono: ${phone}
+          Email: ${email}
+          Mensaje: ${message}
+        `
+      }).then(
+        (message) => {
+          if (message === 'OK') {
+            alert("Mensaje Enviado.");
+            resetForm(e.target);
+          } else {
+            console.error('Error al enviar el correo:', message);
+            alert("Mensaje fallido.");
+          }
+        }
+      );
+    } else if (selectedOption === "more") {
+      // Additional fields sanitization
+      const projectDescription = DOMPurify.sanitize(e.target.project_description.value.trim());
+      const tec = DOMPurify.sanitize(e.target.tec.value.trim());
+      const limit = DOMPurify.sanitize(e.target.limit.value.trim());
+      const budget = DOMPurify.sanitize(e.target.Budget.value.trim());
+      const finalUser = DOMPurify.sanitize(e.target.final_user.value.trim());
+      const specialRec = DOMPurify.sanitize(e.target.special_rec.value.trim());
+      const integrations = DOMPurify.sanitize(e.target.integrations.value.trim());
+      const maintenanceSupport = DOMPurify.sanitize(e.target.maintenance_support.value.trim());
+      const ejemRef = DOMPurify.sanitize(e.target.ejem_ref.value.trim());
+
+      if (!name || !lastname || !phone || !email || !message || !projectDescription || !tec || !limit || !budget || !finalUser || !specialRec || !integrations || !maintenanceSupport || !ejemRef) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+
+      // Send email with all fields
+      window.Email.send({
+        SecureToken: "28bff358-63bf-47fb-a033-0e3fae72ed9c",
+        To: 'jlcodecrafters@gmail.com',
+        From: "contact@jlcodecrafters.com",
+        Subject: "Mensaje de mi sitio web",
+        Body: `
+          Nombre: ${name}
+          Apellido: ${lastname}
+          Teléfono: ${phone}
+          Email: ${email}
+          Mensaje: ${message}
+          Descripción del proyecto: ${projectDescription}
+          Tecnología preferida: ${tec}
+          Fecha límite: ${limit}
+          Presupuesto estimado: ${budget}
+          Usuarios finales: ${finalUser}
+          Requisitos de accesibilidad: ${specialRec}
+          Integraciones requeridas: ${integrations}
+          Soporte de mantenimiento: ${maintenanceSupport}
+          Ejemplos de referencia: ${ejemRef}
+        `
+      }).then(
+        (message) => {
+          if (message === 'OK') {
+            alert("Mensaje Enviado.");
+            resetForm(e.target);
+          } else {
+            console.error('Error al enviar el correo:', message);
+            alert("Mensaje fallido.");
+          }
+        }
+      );
+    }
   }
 
+  // Form reset
   const resetForm = (form) => {
     form.name.value = '';
     form.lastname.value = '';
@@ -112,8 +151,14 @@ export const Contact = () => {
     form.ejem_ref.value = '';
   }
 
+  // Recaptcha
   const handleRecaptchaChange = (value) => {
     setIsVerified(!!value);
+  }
+
+  // Handle select change
+  const handleSelectChange = (e) => {
+    setSelectedOption(e.target.value);
   }
 
   return (
@@ -141,21 +186,37 @@ export const Contact = () => {
           />
           <input type='email' name='email' placeholder='Email' />
           <textarea name='message' placeholder='Your message'></textarea>
-          <textarea name='project_description' placeholder='Could you provide a detailed description of the project?'></textarea>
-          <div className='recaptcha-container'>
+
+          <div className='select-div'>
+            <label>Choose an option to add more details:</label>
+            <select name='selectOption' value={selectedOption} onChange={handleSelectChange}>
+              <option value="normal">
+                No further details
+              </option>
+              <option value="more" title='Choose this option to help us better understand your needs in the development of your project'>
+                Add Development Details
+              </option>
+            </select>
           </div>
-          <input type='text' name='tec' placeholder='Is there any specific technology or tool you would like to be used in the project?' />
-          <input type='text' name='limit' placeholder='What is the deadline for the project completion?' />
-          <input type='text' name='Budget' placeholder='What is your estimated budget for this project?' />
-          <input type='text' name='final_user' placeholder='Who are the end users of this project?' />
-          <input type='text' name='special_rec' placeholder='Are there specific accessibility or usability requirements that we need to be aware of?' />
-          <input type='text' name='integrations' placeholder='Do you require integrations with other services or APIs?' />
-          <input type='text' name='maintenance_support' placeholder='Do you require integrations with other services or APIs?' />
-          <textarea name='ejem_ref' placeholder='Could you provide examples of websites or applications that you like and why?'></textarea>
+          
+          {selectedOption === "more" && (
+            <div className='more'>
+              <textarea name='project_description' placeholder='Could you provide a detailed description of the project?'></textarea>
+              <input type='text' name='tec' placeholder='Is there any specific technology or tool you would like to be used in the project?' />
+              <input type='text' name='limit' placeholder='What is the deadline for the project completion?' />
+              <input type='text' name='Budget' placeholder='What is your estimated budget for this project?' />
+              <input type='text' name='final_user' placeholder='Who are the end users of this project?' />
+              <input type='text' name='special_rec' placeholder='Are there specific accessibility or usability requirements that we need to be aware of?' />
+              <input type='text' name='integrations' placeholder='Do you require integrations with other services or APIs?' />
+              <input type='text' name='maintenance_support' placeholder='Do you require integrations with other services or APIs?' />
+              <textarea name='ejem_ref' placeholder='Could you provide examples of websites or applications that you like and why?'></textarea>
+            </div>
+          )}
+
           <ReCAPTCHA
-              sitekey="6LeOlOYpAAAAAP4VQDHpwFaBzCZiYLq56kZkjzOQ"
-              onChange={handleRecaptchaChange}
-            />
+            sitekey="6LeOlOYpAAAAAP4VQDHpwFaBzCZiYLq56kZkjzOQ"
+            onChange={handleRecaptchaChange}
+          />
           <input type='submit' value='Enviar' disabled={!isVerified} />
         </form>
       </div>

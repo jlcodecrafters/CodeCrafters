@@ -68,15 +68,28 @@
 .form input[type="submit"]:active{
     background-color: #50C878;
 }
-.recaptcha-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.form label{
+    width: 70%;
+    padding: 5px;
+}
+.form select{
+    width: 30%;
+    padding: 5px;
+    border: 2.5px solid #000000;
+}
+.form select:hover{
+    border-color: #FFD700;
+}
+.form select:focus{
+    
+    border-color:#FF8C00 ;
+}
+.select-div{
+    width: 100%;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 
-.recaptcha-container div {
-  width: 100%;
-}
 
 
 /* estilos de tablet */
