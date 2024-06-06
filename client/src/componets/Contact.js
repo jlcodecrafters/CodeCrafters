@@ -70,12 +70,12 @@ export const Contact = () => {
           Mensaje: ${message}
         `
       }).then(
-        (message) => {
-          if (message === 'OK') {
+        (response) => {
+          if (response === 'OK') {
             alert("Mensaje Enviado.");
             resetForm(e.target);
           } else {
-            console.error('Error al enviar el correo:', message);
+            console.error('Error al enviar el correo:', response);
             alert("Mensaje fallido.");
           }
         }
@@ -120,12 +120,12 @@ export const Contact = () => {
           Ejemplos de referencia: ${ejemRef}
         `
       }).then(
-        (message) => {
-          if (message === 'OK') {
+        (response) => {
+          if (response === 'OK') {
             alert("Mensaje Enviado.");
             resetForm(e.target);
           } else {
-            console.error('Error al enviar el correo:', message);
+            console.error('Error al enviar el correo:', response);
             alert("Mensaje fallido.");
           }
         }
@@ -140,15 +140,17 @@ export const Contact = () => {
     form.phone.value = '';
     form.email.value = '';
     form.message.value = '';
-    form.project_description.value = '';
-    form.tec.value = '';
-    form.limit.value = '';
-    form.Budget.value = '';
-    form.final_user.value = '';
-    form.special_rec.value = '';
-    form.integrations.value = '';
-    form.maintenance_support.value = '';
-    form.ejem_ref.value = '';
+    if (selectedOption === "more") {
+      form.project_description.value = '';
+      form.tec.value = '';
+      form.limit.value = '';
+      form.Budget.value = '';
+      form.final_user.value = '';
+      form.special_rec.value = '';
+      form.integrations.value = '';
+      form.maintenance_support.value = '';
+      form.ejem_ref.value = '';
+    }
   }
 
   // Recaptcha
