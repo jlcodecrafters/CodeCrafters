@@ -6,11 +6,16 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://www.jlcodecrafters.com/</loc>
   <lastmod>2024-06-11T20:57:50+00:00</lastmod>
 </url>
 
+<url>
+  <loc>https://www.jlcodecrafters.com/404</loc>
+  <lastmod>2024-06-11T20:57:50+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.1</priority>
+</url>
 
 </urlset>
