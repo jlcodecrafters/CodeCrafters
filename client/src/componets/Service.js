@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import '../styles/service.css';
 import IndividualIntervals from './helpers/IndividualIntervals';
 import $ from 'jquery';
+import { Helmet } from 'react-helmet';
 
 export const Service = () => {
   
@@ -34,6 +35,10 @@ export const Service = () => {
   }, []);
   return (
     <div className='page page-service'>
+      <Helmet>
+        <title>Service Page</title>
+        <link rel='canonical' href='https://www.jlcodecrafters.com/service' />
+      </Helmet>
 
       <div className='service'>
 

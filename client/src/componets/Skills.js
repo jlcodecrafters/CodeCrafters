@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import '../styles/skills.css';
 import Button from './helpers/Button';
 import $ from 'jquery';
+import { Helmet } from 'react-helmet';
 
 
 export const Skills = () => {
@@ -37,6 +38,10 @@ export const Skills = () => {
 
   return (
     <div className='page page-s'>
+      <Helmet>
+        <title>Skills Page</title>
+        <link rel='canonical' href='https://www.jlcodecrafters.com/skills' />
+      </Helmet>
       <div className='skills'>
         {/* agregar un apartado para las habilidades de google maps y doordash appi */}
         <h1 className='TextAcenter h'>Discover interactivity at your fingertips with just one click.</h1>

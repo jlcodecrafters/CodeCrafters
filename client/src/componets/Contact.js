@@ -3,6 +3,7 @@ import DOMPurify from 'dompurify';
 import '../styles/contact.css';
 import $ from 'jquery';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { Helmet } from 'react-helmet';
 
 export const Contact = () => {
   const [isVerified, setIsVerified] = useState(false);
@@ -165,6 +166,12 @@ export const Contact = () => {
 
   return (
     <div className='page page-c'>
+
+        <Helmet>
+          <title>Contact Page</title>
+          <link rel='canonical' href='https://www.jlcodecrafters.com/contact' />
+        </Helmet>
+
       <div className='contact'>
         <h1 className='TextAcenter h'>React.js: Where Great Web Stories Begin</h1>
         <p className='TextAcenter'>

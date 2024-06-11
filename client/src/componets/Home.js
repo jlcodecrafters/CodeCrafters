@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass, faImages, faCode, faRocket, } from '@fortawesome/free-solid-svg-icons';
 import $ from 'jquery';
+import {Helmet} from 'react-helmet';
 
 export const Home = () => {
 
@@ -49,7 +50,12 @@ export const Home = () => {
   // El resto de tu código de componente...
 
   return (
+
     <div className='page' >
+      <Helmet>
+        <title>Home Page</title>
+        <link rel="canonical" href="https://www.jlcodecrafters.com/home" />
+      </Helmet>
 
       <div className='anunciox1 div-hover '>
         <h1>Unprecedented User Experience</h1>

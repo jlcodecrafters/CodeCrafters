@@ -7,6 +7,7 @@ import FourthImage from '../img/img_fourth_p.jpg';
 import FifthImage from '../img/img_fifth_p.jpg';
 import MiCaja from './helpers/MiCaja';
 import $ from 'jquery';
+import { Helmet } from 'react-helmet';
 
 export const About = () => {
 
@@ -63,7 +64,10 @@ export const About = () => {
   
   return (
     <div className='page page-a'>
-
+      <Helmet>
+        <title>About Page</title>
+        <link rel='canonical' href='https://www.jlcodecrafters.com/about' />
+      </Helmet>
       <div className='about'>
           <h1 className='TextAcenter'>Innovating Web Development with React.js</h1>
           <MiCaja>
