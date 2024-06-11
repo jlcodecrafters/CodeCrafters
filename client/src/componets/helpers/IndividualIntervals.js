@@ -78,7 +78,7 @@ const [imagesLoaded, setImagesLoaded] = useState(false);
           </Carousel.Caption>
       </Carousel.Item>
 
-      <Carousel.Item interval={2500} >
+      {/* <Carousel.Item interval={2500} >
         <img src={FourthImg} alt="Fourth slide" />
           <Carousel.Caption>
             <h3 className='h3-carrusel'>Integration with DoorDash and Uber Eats APIs expands your reach in delivery.</h3>
@@ -87,7 +87,7 @@ const [imagesLoaded, setImagesLoaded] = useState(false);
             </p>
             <Link to='/contact' ><button className='button'>Contact</button></Link>
           </Carousel.Caption>
-      </Carousel.Item>
+      </Carousel.Item> */}
 
       <Carousel.Item interval={2500} >
         <img src={FifthImg} alt="Fifth slide" />
