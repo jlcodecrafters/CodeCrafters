@@ -36,7 +36,7 @@ export const Service = () => {
   return (
     <div className='page page-service'>
       <Helmet>
-        <title>JL Codecrafters/ Service</title>
+        <title>JL CodeCrafters/ Service</title>
         <link rel='canonical' href='https://www.jlcodecrafters.com/service' />
       </Helmet>
 

@@ -53,7 +53,7 @@ export const Home = () => {
 
     <div className='page' >
       <Helmet>
-        <title>JL Codecrafters/ Home</title>
+        <title>JL CodeCrafters/ Home</title>
         <link rel="canonical" href="https://www.jlcodecrafters.com/home" />
       </Helmet>
 

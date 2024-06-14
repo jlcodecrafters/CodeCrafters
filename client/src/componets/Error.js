@@ -7,7 +7,7 @@ export const Error = () => {
   return (
     <div className='page page-e'>
       <Helmet>
-        <title>JL Codecrafters/ Error 404</title>
+        <title>JL CodeCrafters/ Error 404</title>
         <link rel='canonical' href='https://www.jlcodecrafters.com/404' />
         <meta name="robots" content="noindex" />
       </Helmet>

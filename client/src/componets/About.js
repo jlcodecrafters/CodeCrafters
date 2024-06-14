@@ -65,7 +65,7 @@ export const About = () => {
   return (
     <div className='page page-a'>
       <Helmet>
-        <title>JL Codecrafters/ About</title>
+        <title>JL CodeCrafters/ About</title>
         <link rel='canonical' href='https://www.jlcodecrafters.com/about' />
       </Helmet>
       <div className='about'>
