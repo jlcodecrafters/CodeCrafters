@@ -39,7 +39,7 @@ export const Skills = () => {
   return (
     <div className='page page-s'>
       <Helmet>
-        <title>Skills Page</title>
+        <title>JL Codecrafters/ Skills</title>
         <link rel='canonical' href='https://www.jlcodecrafters.com/skills' />
       </Helmet>
       <div className='skills'>

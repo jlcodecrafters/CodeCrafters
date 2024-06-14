@@ -168,7 +168,7 @@ export const Contact = () => {
     <div className='page page-c'>
 
         <Helmet>
-          <title>Contact Page</title>
+          <title>JL Codecrafters/ Contact</title>
           <link rel='canonical' href='https://www.jlcodecrafters.com/contact' />
         </Helmet>
 
